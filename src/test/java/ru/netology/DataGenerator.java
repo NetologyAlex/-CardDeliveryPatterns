@@ -30,11 +30,19 @@ public class DataGenerator {
         return LocalDate.now().plusDays(3 + shift).plusDays(random.nextInt(range))
                 .format(DateTimeFormatter.ofPattern("dd.MM.yyyy"));
     }
-    public static String generateInvalidPhone(){
-        return "+7926856325";
+
+    public static String generateInvalidPhone() {
+        StringBuilder builder = new StringBuilder("+7");
+        for (int i = 0; i < 9; i++) {
+            builder.append(random.nextInt(10));
+        }
+        return builder.toString();
     }
-    public static String generateOnlyName(){
-        return "Олеся";
+
+    public static String generateOnlyName() {
+        String[] names = new String[]{"Оля", "Петя", "Вася", "Саша", "Гоша", "Олег"};
+        return names[random.nextInt(names.length)];
     }
+
 }
 
